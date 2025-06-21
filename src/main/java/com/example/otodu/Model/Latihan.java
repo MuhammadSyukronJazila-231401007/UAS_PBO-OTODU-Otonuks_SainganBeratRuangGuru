@@ -4,11 +4,20 @@ public class Latihan {
     private String namaLatihan;
     private String jenisLatihan; // "Pilihan Ganda" atau "Isian Singkat"
     private boolean selected = false;
+    private int id;
+    public int getId() { return id; }
+// Tambahkan id sebagai parameter di konstruktor juga
 
     public Latihan(String namaLatihan, String jenisLatihan) {
         this.namaLatihan = namaLatihan;
         this.jenisLatihan = jenisLatihan;
     }
+    public Latihan(int id, String nama, String jenisLatihan) {
+        this.id = id;
+        this.namaLatihan = nama;
+        this.jenisLatihan = jenisLatihan;
+    }
+
 
     public String getNamaLatihan() {
         return namaLatihan;

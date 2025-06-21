@@ -44,6 +44,12 @@
       <artifactId>postgresql</artifactId>
       <version>42.7.7</version>
     </dependency>
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-web</artifactId>
+      <classifier>win</classifier>
+      <version>17.0.6</version>
+    </dependency>
 
   </dependencies>
 

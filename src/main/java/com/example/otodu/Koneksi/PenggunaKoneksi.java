@@ -225,4 +225,20 @@ public class PenggunaKoneksi {
         }
         return list;
     }
+
+    public static void updateKoin(int userId, int koinBaru) {
+        String sql = "UPDATE users SET koin = ? WHERE id = ?";
+
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setInt(1, koinBaru);
+            ps.setInt(2, userId);
+
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }

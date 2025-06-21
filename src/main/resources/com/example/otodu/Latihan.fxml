@@ -24,6 +24,7 @@
             <Button text="Materi" fx:id="materiBtn" maxWidth="200"
                     style="-fx-background-color: #375679; -fx-text-fill: white;" />
             <Button fx:id="latihanBtn" maxWidth="200" style="-fx-background-color: #4A6FA5; -fx-text-fill: white;" text="Latihan" />
+            <Button fx:id="pesanBtn" maxWidth="200" style="-fx-background-color: #375679; -fx-text-fill: white;" text="Pesan Mentor"/>
             <Button fx:id="logoutBtn"
                     maxWidth="200"
                     prefHeight="40"

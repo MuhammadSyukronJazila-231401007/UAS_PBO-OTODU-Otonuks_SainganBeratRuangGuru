@@ -25,9 +25,9 @@
                             <Image url="@../../../Gambar/logo_white.png" />
                         </image>
                     </ImageView>
-                    <Label fx:id="nlpLabel" style="-fx-background-color: #495DA3; -fx-text-fill: white; -fx-font-size: 16px; -fx-padding: 5 20 5 20;" text="NLP OTODU" />
+                    <Label fx:id="nlpLabel" style="-fx-cursor: hand; -fx-background-color: #495DA3; -fx-text-fill: white; -fx-font-size: 16px; -fx-padding: 5 20 5 20;" text="NLP OTODU" />
                     <Label style="-fx-text-fill: #495DA3; -fx-font-size: 20px;" text="|" />
-                    <Label fx:id="mentorLabel" style="-fx-text-fill: #495DA3; -fx-font-size: 16px;" text="Mentor OTODU" />
+                    <Label fx:id="mentorLabel" style="-fx-cursor: hand; -fx-text-fill: #495DA3; -fx-font-size: 16px;" text="Mentor OTODU" />
                     <Pane HBox.hgrow="ALWAYS"/>
                     <Button fx:id="logoutBtn"
                             prefHeight="32"
@@ -59,31 +59,20 @@
 
                 <!-- Secondary Navbar -->
                 <HBox spacing="20" style="-fx-padding: 10 25 10 25; -fx-background-color: white;">
-                    <Label style="-fx-font-size: 14px;" text="Riwayat transaksi" />
                     <Pane HBox.hgrow="ALWAYS" />
                     <HBox spacing="10">
-                        <HBox alignment="CENTER" spacing="5" style="-fx-background-color: #96AA03; -fx-padding: 2 5 2 5;">
+                        <HBox fx:id="boxCoin" alignment="CENTER" spacing="5" style="-fx-cursor: hand; -fx-background-color: #96AA03; -fx-padding: 2 5 2 5;">
                             <ImageView fitHeight="20" fitWidth="20">
                                 <image>
                                     <Image url="@../../../Gambar/coin.png" />
                                 </image>
                             </ImageView>
-                            <Label style="-fx-text-fill: white;" text="69" />
+                            <Label fx:id="koinLabel" style="-fx-text-fill: white;" text="69" />
                         </HBox>
-                        <HBox spacing="15" style="-fx-background-color: #495DA3; -fx-padding: 2 15 2 15;">
-                            <ImageView fitHeight="18" fitWidth="18">
+                        <HBox fx:id="leaderboard" spacing="15" style="-fx-background-color: #495DA3; -fx-padding: 2 15 2 15; -fx-cursor: hand;">
+                            <ImageView  fitHeight="18" fitWidth="18" >
                                 <image>
                                     <Image url="@../../../Gambar/rank.png" />
-                                </image>
-                            </ImageView>
-                            <ImageView fitHeight="18" fitWidth="18">
-                                <image>
-                                    <Image url="@../../../Gambar/mail.png" />
-                                </image>
-                            </ImageView>
-                            <ImageView fitHeight="18" fitWidth="18">
-                                <image>
-                                    <Image url="@../../../Gambar/user.png" />
                                 </image>
                             </ImageView>
                         </HBox>
@@ -122,12 +111,12 @@
 
                         <!-- Tombol 1 -->
                         <HBox alignment="CENTER">
-                            <Button fx:id="bukaTerakhirBtn" prefHeight="36" prefWidth="220" style="-fx-background-color: #495DA3; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 12px;" text="Buka Pembelajaran Terakhir" />
+                            <Button fx:id="bukaLatihanBtn" prefHeight="36" prefWidth="220" style="-fx-cursor: hand; -fx-background-color: #495DA3; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 12px;" text="Buka Latihan Lainnya" />
                         </HBox>
 
                         <!-- Tombol 2 -->
                         <HBox alignment="CENTER">
-                            <Button fx:id="bukaMateriBtn" prefHeight="36" prefWidth="220" style="-fx-background-color: #495DA3; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 12px;" text="Buka materi lainnya" />
+                            <Button fx:id="bukaMateriBtn" prefHeight="36" prefWidth="220" style="-fx-cursor: hand; -fx-background-color: #495DA3; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 12px;" text="Buka Materi Lainnya" />
                         </HBox>
 
                     </VBox>

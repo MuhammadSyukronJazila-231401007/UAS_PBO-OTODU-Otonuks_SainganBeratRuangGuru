@@ -29,10 +29,10 @@
                             <Image url="@../../../Gambar/logo_white.png" />
                         </image>
                     </ImageView>
-                    <Label fx:id="nlpLabel" text="NLP OTODU" style="-fx-text-fill: #495DA3; -fx-font-size: 16px;" />
+                    <Label fx:id="nlpLabel" text="NLP OTODU" style="-fx-cursor: hand; -fx-text-fill: #495DA3; -fx-font-size: 16px;" />
                     <Label text="|" style="-fx-text-fill: #495DA3; -fx-font-size: 20px;" />
                     <Label fx:id="mentorLabel" text="Mentor OTODU"
-                           style="-fx-background-color: #495DA3; -fx-text-fill: white; -fx-font-size: 16px; -fx-padding: 5 20 5 20;" />
+                           style="-fx-cursor: hand; -fx-background-color: #495DA3; -fx-text-fill: white; -fx-font-size: 16px; -fx-padding: 5 20 5 20;" />
                     <Pane HBox.hgrow="ALWAYS"/>
                     <Button fx:id="logoutBtn"
                             prefHeight="32"
@@ -64,31 +64,20 @@
 
                 <!-- Secondary Navbar -->
                 <HBox spacing="20" style="-fx-padding: 10 25 10 25; -fx-background-color: white;">
-                    <Label text="Riwayat transaksi" style="-fx-font-size: 14px;" />
-                    <Pane HBox.hgrow="ALWAYS" />
+                  <Pane HBox.hgrow="ALWAYS" />
                     <HBox spacing="10">
-                        <HBox spacing="5" alignment="CENTER" style="-fx-background-color: #96AA03; -fx-padding: 2 5 2 5;">
+                        <HBox fx:id="boxCoin" spacing="5" alignment="CENTER" style="-fx-cursor: hand; -fx-background-color: #96AA03; -fx-padding: 2 5 2 5;">
                             <ImageView fitWidth="20" fitHeight="20">
                                 <image>
                                     <Image url="@../../../Gambar/coin.png" />
                                 </image>
                             </ImageView>
-                            <Label text="69" style="-fx-text-fill: white;" />
+                            <Label fx:id="koinLabel" text="69" style="-fx-text-fill: white;" />
                         </HBox>
-                        <HBox spacing="15" style="-fx-background-color: #495DA3; -fx-padding: 2 15 2 15;">
+                        <HBox fx:id="leaderboard"  spacing="15" style="-fx-background-color: #495DA3; -fx-padding: 2 15 2 15; -fx-cursor: hand;">
                             <ImageView fitWidth="18" fitHeight="18">
                                 <image>
                                     <Image url="@../../../Gambar/rank.png" />
-                                </image>
-                            </ImageView>
-                            <ImageView fitWidth="18" fitHeight="18">
-                                <image>
-                                    <Image url="@../../../Gambar/mail.png" />
-                                </image>
-                            </ImageView>
-                            <ImageView fitWidth="18" fitHeight="18">
-                                <image>
-                                    <Image url="@../../../Gambar/user.png" />
                                 </image>
                             </ImageView>
                         </HBox>
@@ -105,7 +94,7 @@
 
                         <!-- === Materi Panel === -->
                         <VBox spacing="15" style="-fx-background-color: white; -fx-padding: 20; -fx-border-color: #E0E0E0; -fx-border-radius: 5; -fx-background-radius: 5;">
-                            <Label text="Materi apa yang Kamu ajarkan?" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #495DA3;" />
+                            <Label text="Materi apa yang mau kamu pelajari?" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #495DA3;" />
                             <Label text="Materi Sekolah" style="-fx-font-size: 13px; -fx-font-weight: bold;" />
 
                             <CheckBox fx:id="matematikaCheckbox"  text="Matematika" />

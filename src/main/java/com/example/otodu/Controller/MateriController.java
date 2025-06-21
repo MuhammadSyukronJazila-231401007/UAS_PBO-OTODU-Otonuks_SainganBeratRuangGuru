@@ -29,6 +29,8 @@ public class MateriController {
     @FXML private Button mentorBtn;
     @FXML private Button dashboardBtn;
     @FXML private Button latihanBtn;
+    @FXML private Button pesanBtn;
+
     @FXML private Button logoutBtn;
 
     @FXML private AnchorPane overlayPane;
@@ -38,6 +40,8 @@ public class MateriController {
         mentorBtn.setOnAction(e -> UbahHalaman.switchScene(e,"Mentor.fxml"));
         dashboardBtn.setOnAction(e -> UbahHalaman.switchScene(e,"Dashboard.fxml"));
         latihanBtn.setOnAction(e -> UbahHalaman.switchScene(e,"Latihan.fxml"));
+        pesanBtn.setOnAction(e -> UbahHalaman.switchScene(e, "PesanMentor.fxml"));
+
         logoutBtn.setOnAction(e -> {
             UbahHalaman.konfirmasiLogout(e);
         });
@@ -365,10 +369,11 @@ public class MateriController {
 
     private void setLoading(boolean status) {
         overlayPane.setVisible(status);
+        dashboardBtn.setDisable(status);
         mentorBtn.setDisable(status);
         latihanBtn.setDisable(status);
-        dashboardBtn.setDisable(status);
         logoutBtn.setDisable(status);
+        pesanBtn.setDisable(status);
     }
 
 }

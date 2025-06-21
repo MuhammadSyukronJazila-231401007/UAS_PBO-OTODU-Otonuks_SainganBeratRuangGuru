@@ -33,6 +33,7 @@ public class LatihanController {
     @FXML private Button materiBtn;
     @FXML private Button mentorBtn;
     @FXML private Button latihanBtn;
+    @FXML private Button pesanBtn;
 
     @FXML private AnchorPane overlayPane;
     @FXML private Button logoutBtn;
@@ -44,6 +45,7 @@ public class LatihanController {
         dashboardBtn.setOnAction(e -> UbahHalaman.switchScene(e, "Dashboard.fxml"));
         materiBtn.setOnAction(e -> UbahHalaman.switchScene(e, "Materi.fxml"));
         mentorBtn.setOnAction(e -> UbahHalaman.switchScene(e, "Mentor.fxml"));
+        pesanBtn.setOnAction(e -> UbahHalaman.switchScene(e, "PesanMentor.fxml"));
 
         logoutBtn.setOnAction(e -> UbahHalaman.konfirmasiLogout(e));
 
@@ -363,10 +365,11 @@ public class LatihanController {
         overlayPane.setVisible(status);
         tambahPGButton.setDisable(status);
         tambahIsianButton.setDisable(status);
+        dashboardBtn.setDisable(status);
         mentorBtn.setDisable(status);
         materiBtn.setDisable(status);
-        latihanBtn.setDisable(status);
-        dashboardBtn.setDisable(status);
+        logoutBtn.setDisable(status);
+        pesanBtn.setDisable(status);
         logoutBtn.setDisable(status);
     }
 

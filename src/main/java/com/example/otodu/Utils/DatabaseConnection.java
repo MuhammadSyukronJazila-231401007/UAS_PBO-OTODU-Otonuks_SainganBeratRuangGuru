@@ -28,6 +28,26 @@ public class DatabaseConnection {
         }
     }
 
+    public static int getKoinPengguna(int idUser) {
+        int koin = 0;
+        String sql = "SELECT koin FROM users WHERE id = ?";
+
+        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, idUser);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                koin = rs.getInt("koin");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return koin;
+    }
+
     public static void main(String[] args) {
 //        try {
 //            Connection conn = DatabaseConnection.getConnection();

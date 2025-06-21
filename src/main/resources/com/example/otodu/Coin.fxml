@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.otodu.Controller.CoinController"
+            prefHeight="720.0" prefWidth="1280.0">
+
+   <children>
+      <BorderPane prefHeight="59.0" prefWidth="600.0"
+                  AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                  AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+
+         <!-- NAVBAR & BANNER -->
+         <top>
+            <VBox spacing="0">
+               <!-- Navbar -->
+               <HBox alignment="CENTER_LEFT" spacing="30" style="-fx-background-color: white; -fx-padding: 15 50 15 50; -fx-border-color: lightgray; -fx-border-width: 0 0 1 0;">
+                  <ImageView fitHeight="35" fitWidth="120">
+                     <image>
+                        <Image url="@../../../Gambar/logo_white.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="nlpLabel" style="-fx-cursor: hand; -fx-background-color: #495DA3; -fx-text-fill: white; -fx-font-size: 16px; -fx-padding: 5 20 5 20;" text="NLP OTODU" />
+                  <Label style="-fx-text-fill: #495DA3; -fx-font-size: 20px;" text="|" />
+                  <Label fx:id="mentorLabel" style="-fx-cursor: hand; -fx-text-fill: #495DA3; -fx-font-size: 16px;" text="Mentor OTODU" />
+                  <Pane HBox.hgrow="ALWAYS"/>
+                  <Button fx:id="logoutBtn"
+                          prefHeight="32"
+                          alignment="CENTER"
+                          graphicTextGap="8"
+                          style="-fx-background-color: #495DA3;
+               -fx-text-fill: #ffffff;
+               -fx-font-size: 13px;
+               -fx-font-weight: bold;
+               -fx-background-radius: 5;
+               -fx-padding: 4 10 4 10;
+               -fx-cursor: hand;">
+                     <graphic>
+                        <ImageView fitHeight="16" fitWidth="16">
+                           <image>
+                              <Image url="@../../../Gambar/logout1.png"/>
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <text>Keluar</text>
+                  </Button>
+               </HBox>
+
+               <!-- Blue Banner -->
+               <VBox spacing="5" style="-fx-background-color: #495DA3; -fx-padding: 40 50 40 50;">
+                  <Label text="Dapatkan koin OTODU untuk akses materi premium dan fitur belajar eksklusif!"
+                         style="-fx-font-size: 18px; -fx-text-fill: white;" />
+                  <Label text="Paket Hemat!."
+                         style="-fx-font-size: 28px; -fx-text-fill: white; -fx-font-weight: bold;" />
+
+               </VBox>
+            </VBox>
+         </top>
+
+         <!-- KONTEN UTAMA -->
+         <center>
+            <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <!-- Kredit satuan -->
+                  <TextField fx:id="inputJumlahKoin" layoutX="454.0" layoutY="43.0" prefHeight="25.0" prefWidth="106.0" />
+                  <Text layoutX="284.0" layoutY="63.0" text="Beli kredit satuan :">
+                     <font><Font size="19.0" /></font>
+                  </Text>
+                  <Text layoutX="483.0" layoutY="173.0" text="Atau">
+                     <font><Font size="23.0" /></font>
+                  </Text>
+                  <Button fx:id="beliPerKoinBtn"
+                          layoutX="569.0" layoutY="38.0"
+                          prefHeight="35.0" prefWidth="200.0"
+                          text="Beli"
+                          style="-fx-background-color: orange; -fx-background-radius: 20; -fx-text-fill: white;" />
+
+                  <!-- Paket 1 -->
+                  <Pane fx:id="panePaket1"  layoutX="57.0" layoutY="216.0" prefHeight="329.0" prefWidth="283.0" style="-fx-background-color: #5064a4; -fx-background-radius: 20;">
+                     <children>
+                        <Pane layoutX="4.0" layoutY="4.0" prefHeight="71.0" prefWidth="274.0" style="-fx-background-color: white; -fx-background-radius: 20;">
+                           <children>
+                              <Text fill="#5064a4" layoutX="41.0" layoutY="46.0" text="OTODU SEHARI">
+                                 <font><Font name="System Bold" size="26.0" /></font>
+                              </Text>
+                           </children>
+                        </Pane>
+                        <Text fill="WHITE" layoutX="91.0" layoutY="204.0" text="10" textAlignment="CENTER">
+                           <font><Font size="96.0" /></font>
+                        </Text>
+                        <Line endX="100.0" layoutX="148.0" layoutY="254.0" startX="-114.44" stroke="WHITE" strokeWidth="4.0" />
+                        <Text fill="WHITE" layoutX="66.0" layoutY="304.0" text="Rp. 5000">
+                           <font><Font size="39.0" /></font>
+                        </Text>
+                     </children>
+                  </Pane>
+
+                  <!-- Paket 2 -->
+                  <Pane fx:id="panePaket2" layoutX="361.0" layoutY="216.0" prefHeight="329.0" prefWidth="283.0" style="-fx-background-color: #5064a4; -fx-background-radius: 20;">
+                     <children>
+                        <Pane layoutX="5.0" layoutY="4.0" prefHeight="71.0" prefWidth="274.0" style="-fx-background-color: white; -fx-background-radius: 20;">
+                           <children>
+                              <Text fill="#5064a4" layoutX="41.0" layoutY="46.0" text="OTODU 5 HARI">
+                                 <font><Font name="System Bold" size="26.0" /></font>
+                              </Text>
+                           </children>
+                        </Pane>
+                        <Text fill="WHITE" layoutX="90.0" layoutY="201.0" text="50" textAlignment="CENTER">
+                           <font><Font size="96.0" /></font>
+                        </Text>
+                        <Line endX="100.0" layoutX="149.0" layoutY="254.0" startX="-114.44" stroke="WHITE" strokeWidth="4.0" />
+                        <Text fill="WHITE" layoutX="53.0" layoutY="304.0" text="Rp. 20.000">
+                           <font><Font size="39.0" /></font>
+                        </Text>
+                     </children>
+                  </Pane>
+
+                  <!-- Paket 3 -->
+                  <Pane fx:id="panePaket3" layoutX="663.0" layoutY="216.0" prefHeight="329.0" prefWidth="283.0" style="-fx-background-color: #5064a4; -fx-background-radius: 20;">
+                     <children>
+                        <Pane layoutX="5.0" layoutY="4.0" prefHeight="71.0" prefWidth="274.0" style="-fx-background-color: white; -fx-background-radius: 20;">
+                           <children>
+                              <Text fill="#5064a4" layoutX="41.0" layoutY="46.0" text="OTODU 10 HARI">
+                                 <font><Font name="System Bold" size="26.0" /></font>
+                              </Text>
+                           </children>
+                        </Pane>
+                        <Text fill="WHITE" layoutX="59.0" layoutY="204.0" text="100" textAlignment="CENTER">
+                           <font><Font size="96.0" /></font>
+                        </Text>
+                        <Line endX="100.0" layoutX="150.0" layoutY="254.0" startX="-114.44" stroke="WHITE" strokeWidth="4.0" />
+                        <Text fill="WHITE" layoutX="53.0" layoutY="304.0" text="Rp. 35.000">
+                           <font><Font size="39.0" /></font>
+                        </Text>
+                     </children>
+                  </Pane>
+
+
+               </children>
+            </Pane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

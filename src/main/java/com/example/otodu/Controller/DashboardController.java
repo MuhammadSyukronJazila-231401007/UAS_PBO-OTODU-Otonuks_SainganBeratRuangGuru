@@ -36,6 +36,8 @@ public class DashboardController {
     @FXML private Button mentorBtn;
     @FXML private Button materiBtn;
     @FXML private Button latihanBtn;
+    @FXML private Button pesanBtn;
+
     @FXML private Button logoutBtn;
 
     @FXML private AnchorPane overlayPane;
@@ -49,6 +51,7 @@ public class DashboardController {
 
         materiBtn.setOnAction(e -> UbahHalaman.switchScene(e,"Materi.fxml"));
         latihanBtn.setOnAction(e -> UbahHalaman.switchScene(e, "Latihan.fxml"));
+        pesanBtn.setOnAction(e -> UbahHalaman.switchScene(e, "PesanMentor.fxml"));
 
         logoutBtn.setOnAction(e -> {
             UbahHalaman.konfirmasiLogout(e);
@@ -80,26 +83,13 @@ public class DashboardController {
         }).start();
     }
 
-    private void konfirmasiLogout(ActionEvent event) {
-        Alert konfirmasi = new Alert(Alert.AlertType.CONFIRMATION);
-        konfirmasi.setTitle("Konfirmasi Logout");
-        konfirmasi.setHeaderText(null);
-        konfirmasi.setContentText("Apakah Anda yakin ingin keluar dari akun ini?");
-
-        konfirmasi.showAndWait().ifPresent(respon -> {
-            if (respon == ButtonType.OK) {
-                PenggunaSekarang.hapusPengguna();
-                UbahHalaman.switchScene(event, "Login.fxml");
-            }
-        });
-    }
-
     private void setLoading(boolean status) {
         overlayPane.setVisible(status);
         mentorBtn.setDisable(status);
         materiBtn.setDisable(status);
         latihanBtn.setDisable(status);
         logoutBtn.setDisable(status);
+        pesanBtn.setDisable(status);
         // tambahkan tombol lainnya juga jika ada
     }
 }

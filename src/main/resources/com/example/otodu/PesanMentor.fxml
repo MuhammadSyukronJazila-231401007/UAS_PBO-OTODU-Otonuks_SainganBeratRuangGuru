@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.otodu.Controller.PesanMentorController"
+            prefWidth="1280.0" prefHeight="720.0">
+
+    <!-- SIDEBAR -->
+    <left>
+        <VBox alignment="TOP_CENTER" prefWidth="250.0" spacing="10" style="-fx-background-color: #375679;">
+            <padding>
+                <Insets bottom="20" left="20" right="20" top="20"/>
+            </padding>
+            <Label style="-fx-font-size: 24px; -fx-text-fill: white; -fx-font-weight: bold;" text="OTODU"/>
+            <Button fx:id="dashboardBtn" maxWidth="200" style="-fx-background-color: #375679; -fx-text-fill: white;" text="Dashboard"/>
+            <Button fx:id="mentorBtn" maxWidth="200" style="-fx-background-color: #375679; -fx-text-fill: white;" text="Mentor"/>
+            <Button fx:id="materiBtn" maxWidth="200" style="-fx-background-color: #375679; -fx-text-fill: white;" text="Materi"/>
+            <Button fx:id="latihanBtn" maxWidth="200" style="-fx-background-color: #375679; -fx-text-fill: white;" text="Latihan"/>
+            <Button fx:id="pesanBtn" maxWidth="200" style="-fx-background-color:  #4A6FA5; -fx-text-fill: white;" text="Pesan Mentor"/>
+            <Button fx:id="logoutBtn"
+                    maxWidth="200"
+                    prefHeight="40"
+                    alignment="CENTER"
+                    graphicTextGap="10"
+                    style="-fx-background-color: rgba(255, 255, 255, 0.8);
+                           -fx-text-fill: #495DA3;
+                           -fx-font-size: 14px;
+                           -fx-font-weight: bold;
+                           -fx-background-radius: 8;
+                           -fx-cursor: hand;">
+                <text>Keluar</text>
+                <graphic>
+                    <ImageView fitHeight="20" fitWidth="20">
+                        <image>
+                            <Image url="@../../../Gambar/logout2.png"/>
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+        </VBox>
+    </left>
+
+    <!-- ISI UTAMA -->
+    <center>
+        <StackPane>
+            <VBox fx:id="mainContent" spacing="10" style="-fx-background-color: #F5F7FA; -fx-padding: 20 20 20 30;">
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="Daftar Pemesanan Mentor"
+                           style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #757575;"/>
+                    <Pane HBox.hgrow="ALWAYS"/>
+                </HBox>
+
+                <ScrollPane fitToWidth="true">
+                    <content>
+                        <TilePane fx:id="pesanTilePane" hgap="20" vgap="20" prefColumns="2" style="-fx-padding: 10;"/>
+                    </content>
+                </ScrollPane>
+            </VBox>
+
+            <!-- OVERLAY -->
+            <AnchorPane fx:id="overlayPane" visible="false" style="-fx-background-color: rgba(0, 0, 0, 0.3);">
+                <StackPane prefWidth="1280" prefHeight="720"
+                           AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
+                           AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+                    <ProgressIndicator fx:id="loadingIndicator" maxWidth="100" maxHeight="100"/>
+                </StackPane>
+            </AnchorPane>
+        </StackPane>
+    </center>
+
+</BorderPane>

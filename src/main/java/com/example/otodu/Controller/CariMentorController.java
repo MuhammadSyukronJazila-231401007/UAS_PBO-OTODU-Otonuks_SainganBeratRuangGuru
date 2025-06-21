@@ -1,12 +1,17 @@
 package com.example.otodu.Controller;
 
 import com.example.otodu.Koneksi.MentorKoneksi;
+import com.example.otodu.Koneksi.PenggunaKoneksi;
+import com.example.otodu.Koneksi.PesanMentorKoneksi;
 import com.example.otodu.Model.Mentor;
+import com.example.otodu.Utils.PenggunaSekarang;
 import com.example.otodu.Utils.UbahHalaman;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 
 import java.time.LocalTime;
@@ -18,6 +23,7 @@ public class CariMentorController {
 
     @FXML private VBox mentorCardContainer;
     @FXML private Label nlpLabel;
+    @FXML private Label koinLabel;
 
     @FXML private CheckBox matematikaCheckbox, bingCheckbox, dasproCheckbox, utbkCheckbox;
     @FXML private ComboBox<String> matematikaJenjang, bingJenjang, dasproJenjang;
@@ -30,6 +36,8 @@ public class CariMentorController {
     @FXML private AnchorPane overlayPane;
     @FXML private ProgressIndicator loadingIndicator;
     @FXML private Button logoutBtn;
+    @FXML private HBox leaderboard;
+    @FXML private HBox boxCoin;
 
     private List<Mentor> semuaMentor;
 
@@ -40,6 +48,16 @@ public class CariMentorController {
         logoutBtn.setOnAction(e -> {
             UbahHalaman.konfirmasiLogout(e);
         });
+
+        leaderboard.setOnMouseClicked(e -> {
+            UbahHalaman.switchScene(e, "Leaderboard.fxml");
+        });
+
+        boxCoin.setOnMouseClicked(e -> {
+            UbahHalaman.switchScene(e, "Coin.fxml");
+        });
+
+        koinLabel.setText(Integer.toString(PenggunaSekarang.getPengguna().getKoin()));
 
         nlpLabel.setOnMouseClicked(e -> UbahHalaman.switchScene(e, "NLPDashboard.fxml"));
         cariMentorBtn.setOnAction(e -> filterMentor());
@@ -190,6 +208,7 @@ public class CariMentorController {
         // === Tombol Pesan ===
         Button pesanBtn = new Button("Pesan Mentor");
         pesanBtn.setStyle("""
+        -fx-cursor: hand;
         -fx-background-color: #495DA3;
         -fx-text-fill: white;
         -fx-font-weight: bold;
@@ -201,10 +220,84 @@ public class CariMentorController {
 
         HBox tombolBox = new HBox(pesanBtn);
         tombolBox.setAlignment(Pos.CENTER_RIGHT);
+        pesanBtn.setOnAction(e -> konfirmasiPesanMentor(mentor));
 
         cardWrapper.getChildren().addAll(nama, infoRow, infoRow2, riwayatLabel, tombolBox);
         return cardWrapper;
     }
+
+    private void konfirmasiPesanMentor(Mentor mentor) {
+        Alert konfirmasi = new Alert(Alert.AlertType.CONFIRMATION);
+        konfirmasi.setTitle("Konfirmasi Pemesanan");
+        konfirmasi.setHeaderText(null);
+        konfirmasi.setContentText("Apakah Anda yakin ingin memesan mentor ini dengan harga 69 koin?");
+
+        konfirmasi.showAndWait().ifPresent(result -> {
+            if (result == ButtonType.OK) {
+                int koin = PenggunaSekarang.getPengguna().getKoin();
+
+                if (koin < 69) {
+                    Alert gagal = new Alert(Alert.AlertType.ERROR);
+                    gagal.setTitle("Koin Tidak Cukup");
+                    gagal.setHeaderText(null);
+                    gagal.setContentText("Anda tidak memiliki cukup koin untuk memesan mentor ini.");
+                    gagal.showAndWait();
+                    return;
+                }
+
+                setLoading(true);
+
+                // Jalankan proses di thread baru
+                new Thread(() -> {
+                    try {
+                        // Update koin pengguna
+                        int koinBaru = koin - 69;
+                        PenggunaSekarang.getPengguna().setKoin(koinBaru);
+                        PenggunaKoneksi.updateKoin(PenggunaSekarang.getPengguna().getId(), koinBaru);
+
+                        // Tambahkan ke tabel pesan_mentor
+                        PesanMentorKoneksi.tambahPesanan(
+                                PenggunaSekarang.getPengguna().getNama(),
+                                mentor.getNama(),
+                                mentor.getEmail(),
+                                mentor.getNomor()
+                        );
+
+                        // Tampilkan alert sukses dan refresh koin di JavaFX thread
+                        Platform.runLater(() -> {
+                            setLoading(false);
+
+                            // Perbarui label koin
+                            koinLabel.setText(String.valueOf(koinBaru));
+
+                            // Muat ulang daftar mentor (opsional jika diperlukan)
+                            tampilkanDaftarMentor(semuaMentor); // atau filterMentor() jika ingin langsung berdasarkan filter sebelumnya
+
+                            Alert sukses = new Alert(Alert.AlertType.INFORMATION);
+                            sukses.setTitle("Berhasil");
+                            sukses.setHeaderText(null);
+                            sukses.setContentText("Pemesanan mentor berhasil disimpan.");
+                            sukses.showAndWait();
+                        });
+
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        Platform.runLater(() -> {
+                            setLoading(false);
+                            Alert error = new Alert(Alert.AlertType.ERROR);
+                            error.setTitle("Kesalahan");
+                            error.setHeaderText("Terjadi kesalahan saat memproses pemesanan.");
+                            error.setContentText(e.getMessage());
+                            error.showAndWait();
+                        });
+                    }
+                }).start();
+            }
+        });
+    }
+
+
 
     // Util: Membuat kotak kecil info
     private VBox createInfoBox(String label, String content, String bgColor) {
