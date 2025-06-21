@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<?import javafx.scene.text.Font?>
+<BorderPane xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.otodu.Controller.MateriController"
+            prefWidth="1200" prefHeight="800">
+
+    <!-- HEADER ATAS -->
+    <top>
+        <HBox spacing="10" style="-fx-background-color: #F5F7FA;">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+            <Label text="Materi" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #757575;" />
+            <Pane HBox.hgrow="ALWAYS" />
+            <TextField fx:id="searchField" promptText="Cari materi..." prefWidth="200" />
+        </HBox>
+    </top>
+
+    <!-- ISI KONTEN MATERI -->
+    <center>
+        <VBox spacing="20" style="-fx-background-color: #F5F7FA;">
+            <padding>
+                <Insets top="0" right="80" bottom="40" left="80"/>
+            </padding>
+            <!-- Daftar Materi (akan diisi dinamis dari controller) -->
+            <ScrollPane fitToWidth="true" style="-fx-background-color: transparent;">
+                <content>
+                    <TilePane fx:id="materiTilePane" hgap="30" vgap="20" prefColumns="2"
+                              style="-fx-background-color: transparent;">
+                        <!-- Konten akan dimasukkan secara dinamis melalui controller -->
+                    </TilePane>
+                </content>
+            </ScrollPane>
+
+            <!-- Tombol Tambah -->
+            <HBox alignment="CENTER">
+                <Button fx:id="tambahButton" prefHeight="45" prefWidth="200"
+                        style="-fx-background-color: #495DA3; -fx-text-fill: white;" text="Tambah">
+                    <font>
+                        <Font name="Poppins Bold" size="14" />
+                    </font>
+                </Button>
+            </HBox>
+
+        </VBox>
+    </center>
+</BorderPane>

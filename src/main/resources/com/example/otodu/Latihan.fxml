@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.otodu.Controller.LatihanController"
+            prefWidth="1000" prefHeight="800">
+
+    <!-- SIDEBAR -->
+    <left>
+        <VBox spacing="10" alignment="TOP_CENTER" prefWidth="250.0" style="-fx-background-color: #375679;">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+            <Label text="OTODU" style="-fx-font-size: 24px; -fx-text-fill: white; -fx-font-weight: bold;" />
+            <Button text="Dashboard" fx:id="dashboardBtn" maxWidth="200"  style="-fx-background-color: #375679; -fx-text-fill: white;" />
+            <Button text="Murid" fx:id="muridBtn" maxWidth="200" style="-fx-background-color: #375679; -fx-text-fill: white;" />
+            <Button text="Mentor" fx:id="mentorBtn" maxWidth="200" style="-fx-background-color: #375679; -fx-text-fill: white;" />
+            <Button text="Materi" fx:id="materiBtn" maxWidth="200" style="-fx-background-color: #4A6FA5; -fx-text-fill: white;" />
+            <Button text="Progress" fx:id="progressBtn" maxWidth="200" style="-fx-background-color: #375679; -fx-text-fill: white;" />
+            <Button text="Pengguna" fx:id="penggunaBtn" maxWidth="200" style="-fx-background-color: #375679; -fx-text-fill: white;" />
+        </VBox>
+    </left>
+
+
+    <center>
+        <VBox spacing="10" style="-fx-background-color: #F5F7FA; -fx-padding: 20 20 20 30;">
+            <!-- HBox di sini -->
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="Daftar Latihan"
+                       style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #757575;" />
+
+                <Pane HBox.hgrow="ALWAYS"/> <!-- Spacer -->
+
+                <Button fx:id="tambahPGButton" text="Tambah PG"
+                        style="-fx-background-color: #28a745; -fx-text-fill: white;" />
+                <Button fx:id="tambahIsianButton" text="Tambah Isian"
+                        style="-fx-background-color: #17a2b8; -fx-text-fill: white;" />
+            </HBox>
+
+
+            <ScrollPane fitToWidth="true">
+                <content>
+                    <TilePane fx:id="latihanTilePane" hgap="20" vgap="20" prefColumns="2"
+                              style="-fx-padding: 10;" />
+                </content>
+            </ScrollPane>
+        </VBox>
+    </center>
+
+
+
+</BorderPane>

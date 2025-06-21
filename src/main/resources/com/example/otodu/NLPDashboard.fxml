@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.layout.AnchorPane?>
+<StackPane fx:id="nlpStack" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.otodu.Controller.NLPDashboardController">
+    <!-- == Halaman Utama == -->
+    <BorderPane fx:id="nlpBorderPane" prefHeight="720.0" prefWidth="1280.0">
+        <!-- Navbar & Banner -->
+        <top>
+            <VBox spacing="0">
+                <!-- Top Navbar -->
+                <HBox alignment="CENTER_LEFT" spacing="30" style="-fx-background-color: white; -fx-padding: 15 50 15 50; -fx-border-color: lightgray; -fx-border-width: 0 0 1 0;">
+                    <ImageView fitHeight="35" fitWidth="120">
+                        <image>
+                            <Image url="@../../../Gambar/logo_white.png" />
+                        </image>
+                    </ImageView>
+                    <Label fx:id="nlpLabel" style="-fx-background-color: #495DA3; -fx-text-fill: white; -fx-font-size: 16px; -fx-padding: 5 20 5 20;" text="NLP OTODU" />
+                    <Label style="-fx-text-fill: #495DA3; -fx-font-size: 20px;" text="|" />
+                    <Label fx:id="mentorLabel" style="-fx-text-fill: #495DA3; -fx-font-size: 16px;" text="Mentor OTODU" />
+                    <Pane HBox.hgrow="ALWAYS"/>
+                    <Button fx:id="logoutBtn"
+                            prefHeight="32"
+                            alignment="CENTER"
+                            graphicTextGap="8"
+                            style="-fx-background-color: #495DA3;
+               -fx-text-fill: #ffffff;
+               -fx-font-size: 13px;
+               -fx-font-weight: bold;
+               -fx-background-radius: 5;
+               -fx-padding: 4 10 4 10;
+               -fx-cursor: hand;">
+                        <graphic>
+                            <ImageView fitHeight="16" fitWidth="16">
+                                <image>
+                                    <Image url="@../../../Gambar/logout1.png"/>
+                                </image>
+                            </ImageView>
+                        </graphic>
+                        <text>Keluar</text>
+                    </Button>
+                </HBox>
+
+                <!-- Blue Banner -->
+                <VBox spacing="5" style="-fx-background-color: #495DA3; -fx-padding: 40 50 40 50;">
+                    <Label style="-fx-font-size: 18px; -fx-text-fill: white;" text="Kuasai konsep NLP dengan mudah dan bertahap!" />
+                    <Label style="-fx-font-size: 32px; -fx-text-fill: white; -fx-font-weight: bold;" text="Statistik Belajar NLP Anda" />
+                </VBox>
+
+                <!-- Secondary Navbar -->
+                <HBox spacing="20" style="-fx-padding: 10 25 10 25; -fx-background-color: white;">
+                    <Label style="-fx-font-size: 14px;" text="Riwayat transaksi" />
+                    <Pane HBox.hgrow="ALWAYS" />
+                    <HBox spacing="10">
+                        <HBox alignment="CENTER" spacing="5" style="-fx-background-color: #96AA03; -fx-padding: 2 5 2 5;">
+                            <ImageView fitHeight="20" fitWidth="20">
+                                <image>
+                                    <Image url="@../../../Gambar/coin.png" />
+                                </image>
+                            </ImageView>
+                            <Label style="-fx-text-fill: white;" text="69" />
+                        </HBox>
+                        <HBox spacing="15" style="-fx-background-color: #495DA3; -fx-padding: 2 15 2 15;">
+                            <ImageView fitHeight="18" fitWidth="18">
+                                <image>
+                                    <Image url="@../../../Gambar/rank.png" />
+                                </image>
+                            </ImageView>
+                            <ImageView fitHeight="18" fitWidth="18">
+                                <image>
+                                    <Image url="@../../../Gambar/mail.png" />
+                                </image>
+                            </ImageView>
+                            <ImageView fitHeight="18" fitWidth="18">
+                                <image>
+                                    <Image url="@../../../Gambar/user.png" />
+                                </image>
+                            </ImageView>
+                        </HBox>
+                    </HBox>
+                </HBox>
+
+            </VBox>
+        </top>
+        <!-- MAIN CONTENT -->
+        <center>
+            <VBox alignment="TOP_CENTER" spacing="20" style="-fx-background-color: #F0F5FA; -fx-padding: 30 30 30 30;">
+
+                <!-- Stat Cards Row -->
+                <HBox spacing="20">
+                    <VBox alignment="CENTER" prefHeight="180" prefWidth="300" spacing="10" style="-fx-background-color: white; -fx-border-color: #DCDCDC; -fx-padding: 15;" HBox.hgrow="ALWAYS">
+                        <Label  style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #495DA3;" text="Poin NLP Sejauh Ini" />
+                        <Label fx:id="nlpPoinLabel"  alignment="CENTER" prefHeight="70.0" prefWidth="382.0" style="-fx-font-size: 48px; -fx-text-fill: #375679; -fx-font-weight: bold;" text="0 Poin" />
+                        <Label style="-fx-text-fill: gray; -fx-font-size: 14px;" text="Belajar terus untuk tingkatkan poin kamu!" />
+                    </VBox>
+
+                    <VBox prefHeight="180" prefWidth="300" spacing="10" style="-fx-background-color: white; -fx-border-color: #DCDCDC; -fx-padding: 15 15 15 30;" HBox.hgrow="ALWAYS">
+
+                        <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #495DA3;" text="Statistik Pembelajaran NLP" />
+
+                        <Label fx:id="materiSelesaiLabel" style="-fx-font-size: 16px; -fx-text-fill: #333333;" text="Materi yang telah diselesaikan: 0" />
+
+                        <Label fx:id="latihanDikuasaiLabel" style="-fx-font-size: 16px; -fx-text-fill: #333333;" text="Latihan yang telah dikuasai: 0" />
+                    </VBox>
+
+
+                    <VBox prefHeight="180" prefWidth="300" spacing="10" style="-fx-background-color: white; -fx-border-color: #DCDCDC; -fx-padding: 15;" HBox.hgrow="ALWAYS">
+
+                        <Label fx:id="namaPenggunaLabel" style="-fx-font-family: 'Poppins'; -fx-font-size: 14px;" text="Halo, [Nama Pengguna]" />
+
+                        <Label fx:id="materiTerakhirLabel" style="-fx-font-family: 'Poppins'; -fx-font-size: 13px;" text="Terakhir belajar: -" />
+
+                        <!-- Tombol 1 -->
+                        <HBox alignment="CENTER">
+                            <Button fx:id="bukaTerakhirBtn" prefHeight="36" prefWidth="220" style="-fx-background-color: #495DA3; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 12px;" text="Buka Pembelajaran Terakhir" />
+                        </HBox>
+
+                        <!-- Tombol 2 -->
+                        <HBox alignment="CENTER">
+                            <Button fx:id="bukaMateriBtn" prefHeight="36" prefWidth="220" style="-fx-background-color: #495DA3; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 12px;" text="Buka materi lainnya" />
+                        </HBox>
+
+                    </VBox>
+
+
+
+                </HBox>
+
+                <!-- Informasi Tambahan Panel -->
+                <VBox alignment="CENTER_LEFT" spacing="10" style="-fx-background-color: #F0F5FA;">
+                    <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Terus Semangat Belajar!" />
+
+                    <VBox maxWidth="700" spacing="8" style="-fx-background-color: white; -fx-border-color: lightgray; -fx-border-width: 1; -fx-padding: 20 25 20 25;">
+                        <Label style="-fx-font-size: 14px; -fx-text-fill: #495DA3;" text="Tips untuk meningkatkan poin:" />
+                        <Label style="-fx-font-size: 13px;" text="✔️ Selesaikan satu materi setiap hari." />
+                        <Label style="-fx-font-size: 13px;" text="✔️ Kerjakan latihan dengan teliti." />
+                        <Label style="-fx-font-size: 13px;" text="✔️ Kembali ke materi terakhir untuk memperkuat pemahaman." />
+                    </VBox>
+                </VBox>
+
+
+            </VBox>
+        </center>
+
+        <!-- FOOTER -->
+        <bottom>
+            <HBox alignment="CENTER" style="-fx-background-color: #18203D; -fx-padding: 10;">
+                <Label style="-fx-text-fill: white;" text="© 2024 OTODU Limited" />
+            </HBox>
+        </bottom>
+    </BorderPane>
+
+    <!-- == OVERLAY LOADING == -->
+    <AnchorPane fx:id="overlayPane" visible="false"
+                style="-fx-background-color: rgba(0, 0, 0, 0.3);"
+                StackPane.alignment="CENTER">
+        <ProgressIndicator fx:id="loadingIndicator"
+                           maxWidth="100" maxHeight="100"
+                           layoutX="590" layoutY="310" />
+    </AnchorPane>
+
+</StackPane>

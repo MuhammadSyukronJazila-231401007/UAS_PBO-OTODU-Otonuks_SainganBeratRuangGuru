@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+
+<?import javafx.scene.layout.VBox?>
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.otodu.Controller.RegistrasiController">
+
+    <!-- HEADER -->
+    <Pane layoutX="0" layoutY="0" prefHeight="70" prefWidth="1280" style="-fx-background-color: white;">
+        <ImageView fitHeight="40" fitWidth="160" layoutX="40" layoutY="15" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../Gambar/logo_blue.png" />
+            </image>
+        </ImageView>
+        <Button fx:id="loginBtn" layoutX="1150" layoutY="20" prefHeight="30" prefWidth="100" style="-fx-background-color: white; -fx-border-color: #495DA3; -fx-text-fill: #495DA3; -fx-font-size: 13px; -fx-cursor: hand;" text="Masuk" />
+    </Pane>
+
+    <!-- FORM PANEL -->
+    <Pane layoutX="385" layoutY="100" prefHeight="500" prefWidth="510" style="-fx-background-color: white; -fx-border-color: #DCDCDC;">
+        <Label layoutX="30" layoutY="20" style="-fx-font-size: 22px; -fx-font-weight: bold;" text="Daftar Akun">
+         <font>
+            <Font name="Poppins Medium" size="12.0" />
+         </font></Label>
+
+        <!-- Input Fields -->
+        <children>
+            <Label layoutX="30" layoutY="60" text="Nama Lengkap" />
+            <TextField fx:id="namaField" layoutX="30" layoutY="80" prefWidth="450" promptText="Masukkan nama lengkap" />
+
+            <Label layoutX="30" layoutY="120" text="Alamat Email" />
+            <TextField fx:id="emailField" layoutX="30" layoutY="140" prefWidth="215" promptText="Masukkan alamat email" />
+
+            <Label layoutX="265" layoutY="120" text="Nomor Telepon / WA" />
+            <TextField fx:id="noTelponField" layoutX="265" layoutY="140" prefWidth="215" promptText="cth: 08xx" />
+
+            <Label layoutX="30" layoutY="180" text="Kota" />
+            <TextField fx:id="kotaField" layoutX="30" layoutY="200" prefWidth="450" promptText="Masukkan kota anda" />
+
+            <Label layoutX="30" layoutY="240" text="Kata Sandi" />
+            <PasswordField fx:id="passwordField" layoutX="30" layoutY="260" prefWidth="450" promptText="Masukkan kata sandi" />
+<!--            <Label layoutX="450" layoutY="260" text="👁️" />-->
+
+            <Label layoutX="30" layoutY="300" text="Ulangi Kata Sandi" />
+            <PasswordField fx:id="confirmPasswordField" layoutX="30" layoutY="320" prefWidth="450" promptText="Masukkan kata sandi" />
+<!--            <Label layoutX="450" layoutY="320" text="👁️" />-->
+
+            <CheckBox fx:id="setujuCheckbox" layoutX="30" layoutY="360" text="Apakah Anda menyetujui Persyaratan Layanan dan Kebijakan Privasi" wrapText="true" />
+
+            <Button fx:id="registerBtn" layoutX="30" layoutY="410" prefHeight="40" prefWidth="450" style="-fx-background-color: #495DA3; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px;" text="Daftarkan Akun" />
+
+            <Button fx:id="loginText" layoutX="30" layoutY="460" prefWidth="450" style="-fx-background-color: transparent; -fx-text-fill: #495DA3; -fx-cursor: hand; -fx-font-size: 12px;" text="Sudah punya akun? Masuk disini" />
+        </children>
+    </Pane>
+
+    <!-- FOOTER -->
+    <Pane layoutX="0" layoutY="640" prefHeight="80" prefWidth="1280" style="-fx-background-color: #28325A;">
+        <ImageView fitHeight="35.0" fitWidth="180.0" layoutX="456.0" layoutY="11.0">
+            <image>
+                <Image url="@../../../Gambar/logo_blue.png" />
+            </image>
+        </ImageView>
+        <Label layoutX="663.0" layoutY="17.0" style="-fx-font-size: 15px;" text="©2024 OTODU Limited" textFill="white" />
+    </Pane>
+
+    <AnchorPane fx:id="overlayPane" visible="false"
+                style="-fx-background-color: rgba(0, 0, 0, 0.3);"
+                AnchorPane.leftAnchor="0" AnchorPane.topAnchor="0"
+                AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0">
+        <VBox alignment="CENTER" prefWidth="1280" prefHeight="720">
+            <ProgressIndicator fx:id="loadingIndicator" maxWidth="100" maxHeight="100"/>
+        </VBox>
+    </AnchorPane>
+</AnchorPane>

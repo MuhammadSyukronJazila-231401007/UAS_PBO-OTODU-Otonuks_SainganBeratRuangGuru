@@ -1,0 +1,305 @@
+
+
+CREATE TABLE "bab" (
+  "kode_bab" INTEGER NOT NULL,
+  "nama_bab" VARCHAR(100) DEFAULT NULL,
+  "kode_materi" INTEGER NOT NULL
+) ;
+
+INSERT INTO "bab" ("kode_bab", "nama_bab", "kode_materi") VALUES
+(1, 'Fungsi', 1),
+(2, 'Matriks', 1),
+(3, 'Report Text', 2),
+(4, 'Narrative Text', 2),
+(5, 'Variabel', 3),
+(6, 'Perulangan', 3);
+
+CREATE TABLE "beli_subtopik" (
+  "id_pembelian" INTEGER NOT NULL,
+  "id_user" INTEGER DEFAULT NULL,
+  "kode_subtopik" INTEGER DEFAULT NULL,
+  "selesai" BOOLEAN NOT NULL DEFAULT FALSE,
+  "tanggal_pembelian" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ;
+
+INSERT INTO "beli_subtopik" ("id_pembelian", "id_user", "kode_subtopik", "selesai", "tanggal_pembelian") VALUES
+(1, 1, 1, false, '2024-10-28 08:17:15'),
+(2, 16, 2, false, '2024-11-04 15:44:36'),
+(3, 16, 1, false, '2024-11-04 15:45:01'),
+(4, 16, 3, false, '2024-11-04 15:47:07'),
+(5, 16, 4, false, '2024-11-04 15:49:13'),
+(6, 13, 2, false, '2024-11-04 16:06:12'),
+(7, 13, 1, false, '2024-11-04 16:06:27'),
+(9, 1, 3, false, '2024-11-10 17:47:39'),
+(10, 1, 4, false, '2024-11-10 17:52:58'),
+(11, 1, 7, false, '2024-11-12 14:39:01'),
+(12, 1, 11, false, '2024-11-12 14:39:19'),
+(13, 10, 1, false, '2024-11-13 12:02:48'),
+(14, 10, 2, false, '2024-11-13 12:09:40'),
+(15, 10, 3, false, '2024-11-13 12:40:04'),
+(16, 10, 4, false, '2024-11-13 13:12:11'),
+(17, 10, 8, false, '2024-11-13 13:21:15'),
+(18, 10, 5, false, '2024-11-13 13:45:25'),
+(19, 10, 6, false, '2024-11-13 13:45:30'),
+(20, 10, 10, false, '2024-11-13 13:47:14'),
+(21, 10, 9, false, '2024-11-13 14:04:45'),
+(22, 10, 7, false, '2024-11-13 14:05:18'),
+(23, 10, 11, false, '2024-11-13 14:08:20'),
+(24, 13, 3, false, '2024-11-13 14:28:21'),
+(25, 13, 4, false, '2024-11-13 14:29:34'),
+(26, 13, 5, false, '2024-11-13 14:29:51'),
+(27, 13, 10, false, '2024-11-13 14:30:20'),
+(28, 13, 8, false, '2024-11-13 14:30:52'),
+(29, 13, 9, false, '2024-11-13 14:31:10'),
+(30, 13, 6, false, '2024-11-14 03:24:29'),
+(31, 13, 11, false, '2024-11-14 03:26:50'),
+(32, 13, 7, false, '2024-11-14 03:28:54'),
+(33, 1, 10, false, '2024-11-16 15:00:46'),
+(34, 1, 9, false, '2024-11-16 15:00:57'),
+(35, 1, 6, false, '2024-11-17 14:35:37'),
+(36, 1, 5, false, '2024-11-17 14:53:20'),
+(37, 22, 1, false, '2024-12-01 18:59:00'),
+(38, 22, 2, false, '2024-12-01 18:59:31'),
+(39, 16, 5, false, '2024-12-06 01:39:30'),
+(40, 24, 2, false, '2024-12-06 15:03:49'),
+(41, 24, 1, false, '2024-12-06 15:04:04'),
+(42, 24, 9, false, '2024-12-06 15:04:11'),
+(43, 24, 11, false, '2024-12-06 16:27:47');
+
+CREATE TABLE "data_mentor" (
+  "id" INTEGER NOT NULL,
+  "id_user" INTEGER NOT NULL,
+  "materi" TEXT DEFAULT NULL,
+  "jenjang" TEXT DEFAULT NULL,
+  "online" TEXT DEFAULT NULL,
+  "offline" TEXT DEFAULT NULL,
+  "riwayat_studi" TEXT DEFAULT NULL
+) ;
+
+INSERT INTO "data_mentor" ("id", "id_user", "materi", "jenjang", "online", "offline", "riwayat_studi") VALUES
+(1, 17, 'MM;Daspro;Bing;UTBK', 'MM-;Daspro-', '13:00 - 16:30;20:00 - 23:00', '08:00 - 11:00', 'Ilmu Komputer - Universitas Sumatera Utara;Computer Science - Harvard University'),
+(4, 18, 'MM;UTBK', 'MM-;UTBK-', '08:00 - 13:20;22:00 - 03:00', '15:00 - 17:30', 'Sastra Mesin - Universitas Garut'),
+(5, 19, 'Bing;UTBK', 'Bing-;UTBK-', '13:00 - 16:50;21:00 - 23:20', '07:00 - 11:30', 'Teknik Inggris - Universitas Garut'),
+(6, 20, 'MM;Bing;UTBK', 'MM-;Bing-;UTBK-', '12:00 - 15:30;20:00 - 23:00', '08:00 - 10:30', 'Pendidikan UTBK - Universitas Pasundan');
+
+CREATE TABLE "isi_latihan" (
+  "kode_latihan" INTEGER NOT NULL,
+  "soal" TEXT DEFAULT NULL,
+  "jawaban" TEXT DEFAULT NULL,
+  "opsi" TEXT DEFAULT NULL,
+  "gambar_url" VARCHAR(255) DEFAULT NULL,
+  "keterangan" VARCHAR(30) DEFAULT NULL,
+  "kode_subtopik" INTEGER NOT NULL
+) ;
+
+INSERT INTO "isi_latihan" ("kode_latihan", "soal", "jawaban", "opsi", "gambar_url", "keterangan", "kode_subtopik") VALUES
+(1, 'Fungsi dapat digunakan untuk memodelkan fenomena dan menyelesaikan ______', 'masalah', NULL, NULL, 'isian', 1);
+
+CREATE TABLE "isi_subtopik" (
+  "kode_isi_subtopik" INTEGER NOT NULL,
+  "nomor" integer NOT NULL,
+  "materi" TEXT DEFAULT NULL,
+  "gambar_url" VARCHAR(255) DEFAULT NULL,
+  "soal" VARCHAR(255) DEFAULT NULL,
+  "jawaban" VARCHAR(255) DEFAULT NULL,
+  "opsi" TEXT DEFAULT NULL,
+  "keterangan" VARCHAR(30) DEFAULT NULL,
+  "kode_subtopik" INTEGER NOT NULL,
+  "petunjuk" TEXT NOT NULL
+) ;
+
+INSERT INTO "isi_subtopik" ("kode_isi_subtopik", "nomor", "materi", "gambar_url", "soal", "jawaban", "opsi", "keterangan", "kode_subtopik", "petunjuk") VALUES
+(1, 1, 'Dalam fungsi, terdapat dua himpunan utama yang saling berhubungan. Agar bisa disebut fungsi, tidak cukup hanya dengan adanya hubungan antara elemen Himpunan A dan Himpunan B; ada aturan-aturan tertentu yang harus dipenuhi. Aturan-aturan ini akan dibahas dalam sub-topik berikutnya.', 'image/svg/materi1.svg', NULL, NULL, NULL, 'materi', 1, 'Tetap Semangat Tetap Otodidak'),
+(6, 2, 'Gambar disamping adalah bentuk dari fungsi karena elemen-elemen didalam himpunan A berhubungan dengan himpunan B, atau bahasa matematikanya adalah Himpunan A memetakan Himpunan B.', 'image/svg/materi2.svg', NULL, NULL, NULL, 'materi', 1, 'Otodidak Adalah Jalan Ninjaku'),
+(7, 3, NULL, 'image/svg/materi3.svg', 'Identifikasi Gambar Diatas!', 'Himpunan Laki-Laki Memetakan Himpunan Jodohnya', 'Himpunan;Laki-Laki;Memetakan;Himpunan;Jodohnya', 'cocok', 1, 'Isi Kotak Kosong Dengan Memilih dan Mengetik Saran Jawaban'),
+(8, 4, 'Pada latihan sebelumnya, kita memahami permasalahan fungsi dengan bahasa awam. Sekarang, mari ubah sudut pandang agar lebih sesuai dengan matematika. Perhatikan gambar: (1) Himpunan diubah menjadi Himpunan A dan B beserta elemennya, (2) Himpunan A disebut Domain (himpunan asal), (3) Himpunan B disebut Kodomain (himpunan kawan), dan (4) Himpunan A memetakan Himpunan B.', 'image/svg/materi4.svg', NULL, NULL, NULL, 'materi', 1, 'Pengalaman Adalah Guru Terbaik'),
+(9, 5, 'Untuk memahami materi ini, diperlukan langkah-langkah sebagai berikut:\n<br>1. Buat Himpunan A (Domain) dan Himpunan B (Kodomain) beserta elemennya.<br>2. Buat rumus fungsi untuk menentukan elemen Himpunan B, dengan tampilan rumus umumnya di sebelah kanan.<br>3. Gunakan rumus tersebut dan gantikan variabel x dengan elemen Himpunan A untuk mendapatkan elemen Himpunan B.', 'image/svg/materi5.svg', NULL, NULL, NULL, 'materi', 1, 'Self-education is, I firmly believe, the only kind of education there is. – Isaac Asimov'),
+(10, 6, NULL, NULL, 'Pernyataan mana yang benar?', 'Domain adalah daerah asal, Kodomain adalah daerah kawan', 'Lorem ipsum dolor sit amet;Domain adalah daerah kawan, kodomain adalah daerah asal;Domain adalah daerah asal, Kodomain adalah daerah kawan;Lorem ipsum dolor sit amet', 'pilgan', 1, 'Fokuslah Dalam Memilih Jawaban, Anda Tidak Dikejar Setan'),
+(11, 7, 'Ini adalah konten untuk Materi 7. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis quae in repudiandae? Eum animi odit obcaecati porro est! Voluptates officiis, minus obcaecati dolorum architecto in ipsum veritatis sunt reiciendis maiores.', NULL, NULL, NULL, NULL, 'materi', 1, 'Self-education is a lifelong journey. Keep learning, keep growing'),
+(13, 8, 'Ini adalah konten untuk Materi 8. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis quae in repudiandae? Eum animi odit obcaecati porro est! Voluptates officiis, minus obcaecati dolorum architecto in ipsum veritatis sunt reiciendis maiores.', NULL, NULL, NULL, NULL, 'materi', 1, 'Kesuksesanmu Ditentukan Oleh Usahamu Dan Kekuatan Dari Dalam');
+
+CREATE TABLE "materi" (
+  "kode_materi" INTEGER NOT NULL,
+  "nama_materi" VARCHAR(100) DEFAULT NULL,
+  "jenjang" VARCHAR(100) DEFAULT NULL,
+  "kelas" VARCHAR(30) DEFAULT NULL
+) ;
+
+INSERT INTO "materi" ("kode_materi", "nama_materi", "jenjang", "kelas") VALUES
+(1, 'Matematika', 'SMA', '11'),
+(2, 'Bahasa Inggris', 'SMA', '11'),
+(3, 'Dasar Pemrograman', 'SMA', '12'),
+(4, 'UTBK', 'SMA', '12');
+
+CREATE TABLE "pesan_mentor" (
+  "id" INTEGER NOT NULL,
+  "nama_mentor" VARCHAR(250) NOT NULL,
+  "nama_siswa" VARCHAR(250) NOT NULL,
+  "tanggal" date NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ;
+
+CREATE TABLE "poin" (
+  "id_user" INTEGER NOT NULL,
+  "matematika" INTEGER DEFAULT 0,
+  "bahasa_inggris" INTEGER DEFAULT 0,
+  "daspro" INTEGER DEFAULT 0,
+  "utbk" INTEGER DEFAULT 0,
+  "total_poin" INTEGER NOT NULL DEFAULT 0
+) ;
+
+INSERT INTO "poin" ("id_user", "matematika", "bahasa_inggris", "daspro", "utbk", "total_poin") VALUES
+(16, 150, 200, 200, 200, 750),
+(10, 200, 150, 150, 0, 500),
+(13, 100, 100, 150, 200, 550),
+(1, 100, 100, 100, 100, 400),
+(21, 0, 0, 0, 0, 0),
+(22, 0, 0, 0, 0, 0),
+(23, 100, 0, 100, 0, 200),
+(24, 100, 150, 0, 0, 250);
+
+CREATE TABLE "statistik" (
+  "kode_statistik" INTEGER NOT NULL,
+  "minggu_lalu" INTEGER DEFAULT NULL,
+  "minggu_ini" INTEGER DEFAULT NULL,
+  "topik_selesai" INTEGER DEFAULT NULL,
+  "id_user" INTEGER NOT NULL
+) ;
+
+INSERT INTO "statistik" ("kode_statistik", "minggu_lalu", "minggu_ini", "topik_selesai", "id_user") VALUES
+(1, 12, 18, 9, 1);
+
+CREATE TABLE "subbab" (
+  "kode_subbab" INTEGER NOT NULL,
+  "nama_subbab" VARCHAR(100) DEFAULT NULL,
+  "kode_bab" INTEGER NOT NULL
+) ;
+
+INSERT INTO "subbab" ("kode_subbab", "nama_subbab", "kode_bab") VALUES
+(1, 'Pengantar', 1),
+(2, 'Fungsi Komposisi', 1),
+(3, 'Pengantar', 2),
+(4, 'Matriks 2x2', 2),
+(5, 'Pengantar', 3),
+(6, 'Pengantar', 4);
+
+CREATE TABLE "subtopik" (
+  "kode_subtopik" INTEGER NOT NULL,
+  "nama_subtopik" VARCHAR(100) DEFAULT NULL,
+  "harga" INTEGER DEFAULT 0,
+  "status_bayar" BOOLEAN DEFAULT false,
+  "kode_topik" INTEGER NOT NULL,
+  "keterangan" VARCHAR(30) DEFAULT NULL
+) ;
+
+INSERT INTO "subtopik" ("kode_subtopik", "nama_subtopik", "harga", "status_bayar", "kode_topik", "keterangan") VALUES
+(1, 'Subtopik 1', 10, true, 1, 'materi'),
+(2, 'Subtopik 2', 10, true, 1, 'tambahan'),
+(3, 'Subtopik 3', 12, true, 1, 'tambahan'),
+(4, 'Latihan 1', 13, true, 1, 'latihan'),
+(5, 'Subtopik 1', 10, false, 2, 'materi'),
+(6, 'Subtopik 2', 15, false, 2, 'materi'),
+(7, 'Subtopik 3', 13, false, 2, 'tambahan'),
+(8, 'Latihan 1', 12, false, 2, 'latihan'),
+(9, 'Subtopik 1', 15, false, 3, 'materi'),
+(10, 'Subtopik 1', 13, false, 3, 'tambahan'),
+(11, 'Latihan 1', 12, false, 3, 'latihan');
+
+CREATE TABLE "target" (
+  "kode_target" INTEGER NOT NULL,
+  "nama_target" VARCHAR(50) DEFAULT NULL,
+  "selesai" INTEGER DEFAULT NULL,
+  "dipelajari" INTEGER DEFAULT NULL,
+  "dikuasai" INTEGER DEFAULT NULL
+) ;
+
+INSERT INTO "target" ("kode_target", "nama_target", "selesai", "dipelajari", "dikuasai") VALUES
+(1, 'Ambis', 27, 7, 5),
+(2, 'Normal', 23, 5, 3),
+(3, 'Santai', 20, 3, 2);
+
+CREATE TABLE "topik" (
+  "kode_topik" INTEGER NOT NULL,
+  "nama_topik" VARCHAR(100) DEFAULT NULL,
+  "rangkuman" TEXT DEFAULT NULL,
+  "video_url" VARCHAR(255) DEFAULT NULL,
+  "kode_subbab" INTEGER NOT NULL
+) ;
+
+INSERT INTO "topik" ("kode_topik", "nama_topik", "rangkuman", "video_url", "kode_subbab") VALUES
+(1, 'Apa itu Fungsi?', 'Fungsi adalah konsep fundamental dalam matematika dan pemrograman yang berfungsi untuk menghubungkan suatu input dengan output tertentu. Dalam matematika, fungsi dapat dianggap sebagai sebuah aturan atau hubungan yang mengambil satu atau lebih nilai (input) dan mengubahnya menjadi satu nilai (output). Misalnya, fungsi 𝑓(𝑥) = 2𝑥+3\nakan mengambil nilai 𝑥 dan menghasilkan nilai baru berdasarkan rumus tersebut.\n\nDalam konteks pemrograman, fungsi juga berperan penting sebagai blok kode yang dirancang untuk melaksanakan tugas tertentu. Fungsi dapat menerima argumen (input), melakukan perhitungan atau operasi tertentu, dan kemudian mengembalikan hasilnya (output). Penggunaan fungsi membantu dalam mengorganisir kode, mengurangi pengulangan, dan meningkatkan keterbacaan serta pemeliharaan program.\n\nSecara keseluruhan, fungsi adalah alat yang sangat berguna baik dalam matematika maupun pemrograman, memungkinkan kita untuk menyelesaikan masalah dengan cara yang terstruktur dan efisien.', './image/CARA MENENTUKAN FUNGSI DAN BUKAN FUNGSI PADA GRAFIK.mp4', 1),
+(2, 'Beda fungsi dan bukan fungsi', NULL, './image/CARA MENENTUKAN FUNGSI DAN BUKAN FUNGSI PADA GRAFIK.mp4', 1),
+(3, 'Notasi Fungsi', NULL, './image/CARA MENENTUKAN FUNGSI DAN BUKAN FUNGSI PADA GRAFIK.mp4', 1);
+
+CREATE TABLE "transaksi" (
+  "id_transaksi" INTEGER NOT NULL,
+  "id_user" INTEGER DEFAULT NULL,
+  "jumlah" INTEGER DEFAULT NULL,
+  "biaya" INTEGER DEFAULT NULL,
+  "keterangan" TEXT NOT NULL,
+  "waktu" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ;
+
+INSERT INTO "transaksi" ("id_transaksi", "id_user", "jumlah", "biaya", "keterangan", "waktu") VALUES
+(1, 20, 10, 5000, 'Beli Paket Sehari', '2024-11-10 17:00:00'),
+(2, 20, 10, 5000, 'Beli Paket Sehari', '2024-11-10 17:00:00'),
+(3, 20, 2, 4000, 'Beli 2 Koin', '2024-11-10 17:00:00'),
+(4, 20, 3, 6000, 'Beli 3 Koin', '2024-11-10 17:00:00'),
+(5, 20, 1, 2000, 'Beli 1 Koin', '2024-11-10 17:00:00'),
+(6, 20, 4, 8000, 'Beli 4 Koin', '2024-11-10 17:00:00'),
+(7, 20, 50, 20000, 'Beli Paket 5 Hari', '2024-11-12 12:48:57'),
+(8, 20, 2, 4000, 'Beli 2 Koin', '2024-11-12 12:55:40'),
+(9, 1, 50, 20000, 'Beli Paket 5 Hari', '2024-11-13 04:41:34'),
+(10, 10, 50, 20000, 'Beli Paket 5 Hari', '2024-11-13 12:02:32'),
+(11, 13, 10, 20000, 'Beli 10 Koin', '2024-11-14 03:34:37'),
+(12, 13, 4, 8000, 'Beli 4 Koin', '2024-11-14 03:35:45'),
+(13, 1, 10, 5000, 'Beli Paket Sehari', '2024-12-01 08:15:47'),
+(14, 22, 10, 5000, 'Beli Paket Sehari', '2024-12-01 18:58:21'),
+(15, 22, 100, 200000, 'Beli 100 Koin', '2024-12-01 18:58:51'),
+(16, 1, 50, 20000, 'Beli Paket 5 Hari', '2024-12-04 07:20:39'),
+(17, 1, 50, 20000, 'Beli Paket 5 Hari', '2024-12-04 08:13:11'),
+(18, 1, 100, 35000, 'Beli Paket 10 Hari', '2024-12-06 08:35:43'),
+(19, 24, 100, 35000, 'Beli Paket 10 Hari', '2024-12-06 09:07:11');
+
+CREATE TABLE "users" (
+  "id" INTEGER NOT NULL,
+  "email" VARCHAR(255) NOT NULL,
+  "nama" VARCHAR(100) NOT NULL,
+  "nomor" VARCHAR(20) DEFAULT NULL,
+  "latitude" decimal(11,8) DEFAULT NULL,
+  "longitude" decimal(11,8) DEFAULT NULL,
+  "password" VARCHAR(255) NOT NULL,
+  "role" VARCHAR(30) DEFAULT NULL,
+  "koin" INTEGER NOT NULL DEFAULT 0,
+  "materi_terakhir" VARCHAR(100) DEFAULT NULL
+) ;
+
+INSERT INTO "users" ("id", "email", "nama", "nomor", "latitude", "longitude", "password", "role", "koin", "materi_terakhir") VALUES
+(1, 'jazilasyukron12@gmail.com', 'Muhamamd Syukron', '89966677713', 3.56188160, 98.69393920, '$2y$10$9azZK1ny0.GW9iW0S.TPhOIfW8/LPfWG08Nl0alV/EOGruplaHKNy', 'admin', 247, 'Fungsi - Pengantar'),
+(10, 'adilafurqon21@gmail.com', 'tez', '08666777999', 3.57192172, 98.69133567, '$2y$10$A3FoUqx3Wq49yXX7xSHn7OCtod30EoVrN/m/aLTQ/vxVznDkO6HwG', 'Siswa', 10, NULL),
+(13, 'syukron9a@gmail.com', 'Jonto Amgis', '0899888777', 3.57803962, 98.68850325, '$2y$10$vECUhEXrGeq0Yiv7MuP3zeug4mzPOryIq5/0NlRFiUeqX24V1.lNO', 'Siswa', 89, NULL),
+(16, 'jazilasyukron21@gmail.com', 'Sigma Skibidi', '08997777666', 3.55057534, 98.69943422, '$2y$10$NpHawhm.LMBEJQ5PGaF5seHOfygrVtgvZ2kgK0L0ipcHslwHq0Lli', 'Siswa', 35, NULL),
+(17, 'widianto@gmail.com', 'Akbar Widianto', '0811122223333', 3.57304501, 98.76194000, '$2y$10$F06wy4muaIhO8w27LV4cEOTwULjD4mEyJih5UYs6wWEPKq.dkuidG', 'Mentor', 0, NULL),
+(18, 'budi@gmail.com', 'Budie Arie', '0866644446666', 3.56412867, 98.69537968, '$2y$10$PVKIzbuKfhcuZMDE/0BVbOYiXQxH1p5EKq02oDfGwJwPHB0Gfw8gm', 'Mentor', 0, NULL),
+(19, 'eko@gmail.com', 'Eko Kurniawan', '089131136778', 3.55392007, 98.70346672, '$2y$10$Xkt2/fNI4FypMr6OxwOpp.mTz8GJyAVCQd5tg4TkFathPraqRXNpy', 'Mentor', 0, NULL),
+(20, 'joko@gmail.com', 'Joko Susanto', '081122223333', 3.56246680, 98.65932800, '$2y$10$cKXDccGB6lsA/iOg2aaO0.0eMknNGCfzqywNIBGxcwUoP4.CTKkJO', 'Mentor', 0, NULL),
+(21, 'deadline@gmail.com', 'tes last deadline', '089911112222', 3.62307133, 98.70769501, '$2y$10$.QeP.mCXPyb/DH30Ahf17.pEN4fOHSeFDz8pH440LUjX6iy9yky3S', 'Siswa', 0, NULL),
+(22, 'mizone@gmail.com', 'mizone', '08999111010', 3.61821213, 98.69332129, '$2y$10$ffPB4O.XYenxMomMp1e/WestPv.WnjmZ9pM8ElEmK5YIh29RnLvk.', 'Siswa', 90, NULL),
+(23, 'arie@gmail.com', 'arie', '0899992993', 3.58809600, 98.67427840, '$2y$10$DA//1RAc95tvd5WpWhkN3.EHqamVVSLKjTVFHZFPwvveYN0JilUrG', 'Siswa', 0, NULL),
+(24, 'teslab@gmail.com', 'budi', '0899777666', 3.58809600, 98.67427840, '$2y$10$EB2nA/BfzmapfsVuKILYSuWGYr0BDe7lsz.x/rGTVIfUEBmGQmh6u', 'Siswa', 53, NULL);
+
+CREATE TABLE "user_materi" (
+  "id_user" INTEGER NOT NULL,
+  "jenjang" VARCHAR(100) DEFAULT NULL,
+  "minat" VARCHAR(100) DEFAULT NULL,
+  "kode_target" INTEGER DEFAULT NULL
+) ;
+
+INSERT INTO "user_materi" ("id_user", "jenjang", "minat", "kode_target") VALUES
+(1, 'SMA', 'Matematika', 1),
+(13, 'SMP', 'UTBK', 1),
+(10, 'SD', 'Matematika', 2),
+(16, 'Lain-lain', 'daspro', 3),
+(21, 'SMP', 'Pemrograman', 2),
+(22, 'SMP', 'Pemrograman', 2),
+(23, 'SMA', 'Pemrograman', 3),
+(24, 'SMA', 'Pemrograman', 1);

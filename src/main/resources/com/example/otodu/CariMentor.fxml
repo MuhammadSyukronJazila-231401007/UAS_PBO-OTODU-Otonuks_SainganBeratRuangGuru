@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<?import javafx.collections.FXCollections?>
+<StackPane xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.otodu.Controller.CariMentorController">
+
+    <BorderPane fx:id="mentorPane" prefWidth="1280" prefHeight="720">
+        <!-- Navbar -->
+        <top>
+            <VBox spacing="0">
+
+                <!-- Top Navbar -->
+                <HBox spacing="30" alignment="CENTER_LEFT"
+                      style="-fx-background-color: white; -fx-padding: 15 50 15 50; -fx-border-color: lightgray; -fx-border-width: 0 0 1 0;">
+                    <ImageView fitHeight="35" fitWidth="120">
+                        <image>
+                            <Image url="@../../../Gambar/logo_white.png" />
+                        </image>
+                    </ImageView>
+                    <Label fx:id="nlpLabel" text="NLP OTODU" style="-fx-text-fill: #495DA3; -fx-font-size: 16px;" />
+                    <Label text="|" style="-fx-text-fill: #495DA3; -fx-font-size: 20px;" />
+                    <Label fx:id="mentorLabel" text="Mentor OTODU"
+                           style="-fx-background-color: #495DA3; -fx-text-fill: white; -fx-font-size: 16px; -fx-padding: 5 20 5 20;" />
+                    <Pane HBox.hgrow="ALWAYS"/>
+                    <Button fx:id="logoutBtn"
+                            prefHeight="32"
+                            alignment="CENTER"
+                            graphicTextGap="8"
+                            style="-fx-background-color: #495DA3;
+               -fx-text-fill: #ffffff;
+               -fx-font-size: 13px;
+               -fx-font-weight: bold;
+               -fx-background-radius: 5;
+               -fx-padding: 4 10 4 10;
+               -fx-cursor: hand;">
+                        <graphic>
+                            <ImageView fitHeight="16" fitWidth="16">
+                                <image>
+                                    <Image url="@../../../Gambar/logout1.png"/>
+                                </image>
+                            </ImageView>
+                        </graphic>
+                        <text>Keluar</text>
+                    </Button>
+                </HBox>
+
+                <!-- Blue Banner -->
+                <VBox spacing="5" style="-fx-background-color: #495DA3; -fx-padding: 40 50 40 50;">
+                    <Label text="Otodidak jauh lebih terarah dengan.." style="-fx-font-size: 18px; -fx-text-fill: white;" />
+                    <Label text="Mentor OTODU!" style="-fx-font-size: 32px; -fx-text-fill: white; -fx-font-weight: bold;" />
+                </VBox>
+
+                <!-- Secondary Navbar -->
+                <HBox spacing="20" style="-fx-padding: 10 25 10 25; -fx-background-color: white;">
+                    <Label text="Riwayat transaksi" style="-fx-font-size: 14px;" />
+                    <Pane HBox.hgrow="ALWAYS" />
+                    <HBox spacing="10">
+                        <HBox spacing="5" alignment="CENTER" style="-fx-background-color: #96AA03; -fx-padding: 2 5 2 5;">
+                            <ImageView fitWidth="20" fitHeight="20">
+                                <image>
+                                    <Image url="@../../../Gambar/coin.png" />
+                                </image>
+                            </ImageView>
+                            <Label text="69" style="-fx-text-fill: white;" />
+                        </HBox>
+                        <HBox spacing="15" style="-fx-background-color: #495DA3; -fx-padding: 2 15 2 15;">
+                            <ImageView fitWidth="18" fitHeight="18">
+                                <image>
+                                    <Image url="@../../../Gambar/rank.png" />
+                                </image>
+                            </ImageView>
+                            <ImageView fitWidth="18" fitHeight="18">
+                                <image>
+                                    <Image url="@../../../Gambar/mail.png" />
+                                </image>
+                            </ImageView>
+                            <ImageView fitWidth="18" fitHeight="18">
+                                <image>
+                                    <Image url="@../../../Gambar/user.png" />
+                                </image>
+                            </ImageView>
+                        </HBox>
+                    </HBox>
+                </HBox>
+            </VBox>
+        </top>
+
+        <!-- Main Scrollable Content -->
+        <center>
+            <ScrollPane fitToWidth="true" style="-fx-background-color: transparent;">
+                <content>
+                    <VBox spacing="30" style="-fx-background-color: #E3ECF5; -fx-padding: 30 50 50 50;">
+
+                        <!-- === Materi Panel === -->
+                        <VBox spacing="15" style="-fx-background-color: white; -fx-padding: 20; -fx-border-color: #E0E0E0; -fx-border-radius: 5; -fx-background-radius: 5;">
+                            <Label text="Materi apa yang Kamu ajarkan?" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #495DA3;" />
+                            <Label text="Materi Sekolah" style="-fx-font-size: 13px; -fx-font-weight: bold;" />
+
+                            <CheckBox fx:id="matematikaCheckbox"  text="Matematika" />
+                            <ComboBox fx:id="matematikaJenjang" promptText="Pilih jenjang">
+                                <items>
+                                    <FXCollections fx:factory="observableArrayList">
+                                        <String fx:value="SD"/>
+                                        <String fx:value="SMP"/>
+                                        <String fx:value="SMA"/>
+                                    </FXCollections>
+                                </items>
+                            </ComboBox>
+
+                            <CheckBox fx:id="bingCheckbox" text="Bahasa Inggris" />
+                            <ComboBox fx:id="bingJenjang" promptText="Pilih jenjang">
+                                <items>
+                                    <FXCollections fx:factory="observableArrayList">
+                                        <String fx:value="SD"/>
+
+
+                                        <String fx:value="SMP"/>
+                                        <String fx:value="SMA"/>
+                                    </FXCollections>
+                                </items>
+                            </ComboBox>
+
+                            <CheckBox fx:id="dasproCheckbox" text="Dasar Pemrograman" />
+                            <ComboBox  fx:id="dasproJenjang" promptText="Pilih jenjang">
+                                <items>
+                                    <FXCollections fx:factory="observableArrayList">
+                                        <String fx:value="SMP"/>
+                                        <String fx:value="SMA"/>
+                                        <String fx:value="Universitas"/>
+                                    </FXCollections>
+                                </items>
+                            </ComboBox>
+
+                            <CheckBox fx:id="utbkCheckbox"  text="UTBK" />
+                        </VBox>
+
+                        <!-- === Ketersediaan Panel === -->
+                        <VBox spacing="15" style="-fx-background-color: white; -fx-padding: 20; -fx-border-color: #E0E0E0; -fx-border-radius: 5;">
+                            <Label text="Ketersediaan Mentor?" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #495DA3;" />
+
+                            <TitledPane text="Daring / Online" expanded="false">
+                                <content>
+                                    <VBox spacing="10">
+                                        <!-- Waktu dinamis dari controller jika dibutuhkan -->
+                                        <HBox spacing="10">
+                                            <Label text="Mulai:" />
+                                            <TextField fx:id="onlineMulaiField"  promptText="08:00" />
+                                            <Label text="Sampai:" />
+                                            <TextField fx:id="onlineSampaiField" promptText="10:00" />
+                                        </HBox>
+                                    </VBox>
+                                </content>
+                            </TitledPane>
+
+                            <TitledPane text="Luring / Offline" expanded="false">
+                                <content>
+                                    <VBox spacing="10">
+                                        <HBox spacing="10">
+                                            <Label text="Mulai:" />
+                                            <TextField fx:id="offlineMulaiField"  promptText="08:00" />
+                                            <Label text="Sampai:" />
+                                            <TextField fx:id="offlineSampaiField" promptText="10:00" />
+                                        </HBox>
+                                    </VBox>
+                                </content>
+                            </TitledPane>
+                        </VBox>
+
+                        <!-- === Riwayat Studi Panel === -->
+                        <VBox spacing="15" style="-fx-background-color: white; -fx-padding: 20; -fx-border-color: #E0E0E0; -fx-border-radius: 5;">
+                            <Label text="Domisili Kota" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #495DA3;" />
+                            <Label text="(Form Riwayat Studi di bawah ini menggantikan Peta Lokasi)" style="-fx-font-size: 12px; -fx-text-fill: gray; -fx-font-style: italic;" />
+                            <HBox spacing="10">
+                                <TextField fx:id="kotaField" promptText="Kota" />
+                            </HBox>
+                        </VBox>
+
+                        <!-- === Tombol Cari Mentor === -->
+                        <HBox alignment="CENTER">
+                            <Button fx:id="cariMentorBtn" text="Cari Mentor" style="-fx-background-color: #495DA3; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10 20 10 20; -fx-background-radius: 6;" />
+                        </HBox>
+
+                        <!-- === Scroll Mentor Card Dinamis === -->
+                        <ScrollPane fitToWidth="true" style="-fx-background-color: transparent;">
+                            <content>
+                                <VBox fx:id="mentorCardContainer" spacing="20" style="-fx-padding: 20 10 20 10;">
+                                    <!-- Kartu mentor akan diisi dinamis dari controller -->
+                                </VBox>
+                            </content>
+                        </ScrollPane>
+
+                    </VBox>
+                </content>
+            </ScrollPane>
+        </center>
+    </BorderPane>
+
+    <AnchorPane fx:id="overlayPane" visible="false"
+                style="-fx-background-color: rgba(0, 0, 0, 0.3);"
+                StackPane.alignment="CENTER">
+        <VBox alignment="CENTER" prefWidth="1280" prefHeight="720">
+            <ProgressIndicator fx:id="loadingIndicator"
+                               maxWidth="100" maxHeight="100" />
+        </VBox>
+    </AnchorPane>
+</StackPane>
