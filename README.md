@@ -87,3 +87,6 @@ Silahkan masukkan dependecy berikut pada file pom.xml. lalu silahkan install.
 
 ![](img/6.png)
 
+# Video Presentasi
+https://youtu.be/Xb3_86rXaxM
+
