@@ -1,35 +1,41 @@
 package com.example.otodu.Model;
 
 public class Materi {
-    private int kodeMateri;
+    private int id;
     private String namaMateri;
     private String jenjang;
     private String kelas;
+    private String isiMateri;
+    private String gambarPath;
+    private String videoPath;
     private boolean selected = false;
 
-    public Materi(int kodeMateri, String namaMateri, String jenjang, String kelas) {
-        this.kodeMateri = kodeMateri;
+    // Constructor lengkap
+    public Materi(int id, String namaMateri, String jenjang, String kelas, String isiMateri, String gambarPath, String videoPath) {
+        this.id = id;
+        this.namaMateri = namaMateri;
+        this.jenjang = jenjang;
+        this.kelas = kelas;
+        this.isiMateri = isiMateri;
+        this.gambarPath = gambarPath;
+        this.videoPath = videoPath;
+    }
+
+    // Constructor tanpa isi materi (untuk daftar)
+    public Materi(int id, String namaMateri, String jenjang, String kelas) {
+        this.id = id;
         this.namaMateri = namaMateri;
         this.jenjang = jenjang;
         this.kelas = kelas;
     }
 
-    public Materi(String namaMateri, String jenjang, String kelas) {
-        this.namaMateri = namaMateri;
-        this.jenjang = jenjang;
-        this.kelas = kelas;
+    // Getter dan Setter
+    public int getId() {
+        return id;
     }
 
-    public Materi(String namaMateri) {
-        this.namaMateri = namaMateri;
-    }
-
-    public int getKodeMateri() {
-        return kodeMateri;
-    }
-
-    public void setKodeMateri(int kodeMateri) {
-        this.kodeMateri = kodeMateri;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNamaMateri() {
@@ -56,11 +62,35 @@ public class Materi {
         this.kelas = kelas;
     }
 
-    public boolean isSelected(){
+    public String getIsiMateri() {
+        return isiMateri;
+    }
+
+    public void setIsiMateri(String isiMateri) {
+        this.isiMateri = isiMateri;
+    }
+
+    public String getGambarPath() {
+        return gambarPath;
+    }
+
+    public void setGambarPath(String gambarPath) {
+        this.gambarPath = gambarPath;
+    }
+
+    public String getVideoPath() {
+        return videoPath;
+    }
+
+    public void setVideoPath(String videoPath) {
+        this.videoPath = videoPath;
+    }
+
+    public boolean isSelected() {
         return this.selected;
     }
 
-    public void setSelected(boolean newSelect){
-         this.selected = newSelect;
+    public void setSelected(boolean selected) {
+        this.selected = selected;
     }
 }

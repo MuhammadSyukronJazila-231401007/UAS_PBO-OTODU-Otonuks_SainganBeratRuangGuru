@@ -73,7 +73,7 @@ public class MateriKoneksi {
             stmt.setString(1, materi.getNamaMateri());
             stmt.setString(2, materi.getJenjang());
             stmt.setString(3, materi.getKelas());
-            stmt.setInt(4, materi.getKodeMateri());
+            stmt.setInt(4, materi.getId());
 
             return stmt.executeUpdate() > 0;
         } catch (SQLException e) {

@@ -24,6 +24,7 @@ public class MentorController {
 
     @FXML private Button dashboardBtn;
     @FXML private Button materiBtn;
+    @FXML private Button latihanBtn;
 
     @FXML private AnchorPane overlayPane;
     @FXML private StackPane dashboardStack;
@@ -37,11 +38,13 @@ public class MentorController {
         setLoading(true);
 
         dashboardBtn.setOnAction(e -> UbahHalaman.switchScene(e, "Dashboard.fxml"));
-        materiBtn.setOnAction(e -> {/* bisa isi navigasi ke halaman materi */});
+        materiBtn.setOnAction(e -> UbahHalaman.switchScene(e,"Materi.fxml"));
+        latihanBtn.setOnAction(e -> UbahHalaman.switchScene(e, "Latihan.fxml"));
 
         logoutBtn.setOnAction(e -> {
             UbahHalaman.konfirmasiLogout(e);
         });
+
 
         tambahMentorBtn.setOnAction(e -> showMentorDialog(null, null));
 
@@ -232,6 +235,7 @@ public class MentorController {
         dashboardBtn.setDisable(status);
         materiBtn.setDisable(status);
         logoutBtn.setDisable(status);
+        latihanBtn.setDisable(status);
     }
 
 

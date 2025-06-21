@@ -35,6 +35,7 @@ public class DashboardController {
 
     @FXML private Button mentorBtn;
     @FXML private Button materiBtn;
+    @FXML private Button latihanBtn;
     @FXML private Button logoutBtn;
 
     @FXML private AnchorPane overlayPane;
@@ -46,9 +47,8 @@ public class DashboardController {
             UbahHalaman.switchScene(e,"Mentor.fxml");
         });
 
-        materiBtn.setOnAction(e -> {
-//            konfirmasiLogout(e);
-        });
+        materiBtn.setOnAction(e -> UbahHalaman.switchScene(e,"Materi.fxml"));
+        latihanBtn.setOnAction(e -> UbahHalaman.switchScene(e, "Latihan.fxml"));
 
         logoutBtn.setOnAction(e -> {
             UbahHalaman.konfirmasiLogout(e);
@@ -98,6 +98,7 @@ public class DashboardController {
         overlayPane.setVisible(status);
         mentorBtn.setDisable(status);
         materiBtn.setDisable(status);
+        latihanBtn.setDisable(status);
         logoutBtn.setDisable(status);
         // tambahkan tombol lainnya juga jika ada
     }

@@ -1,59 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
-
-<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
 
-<?import javafx.scene.text.Font?>
-<BorderPane xmlns="http://javafx.com/javafx/23.0.1"
-            xmlns:fx="http://javafx.com/fxml/1"
+<?import javafx.scene.image.Image?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.example.otodu.Controller.MateriController"
-            prefWidth="1200" prefHeight="800">
+            prefWidth="1000" prefHeight="800">
 
-    <!-- HEADER ATAS -->
-    <top>
-        <HBox spacing="10" style="-fx-background-color: #F5F7FA;">
-            <padding>
-                <Insets top="20" right="20" bottom="20" left="20"/>
-            </padding>
-            <Label text="Materi" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #757575;" />
-            <Pane HBox.hgrow="ALWAYS" />
-            <TextField fx:id="searchField" promptText="Cari materi..." prefWidth="200" />
-        </HBox>
-    </top>
+    <!-- SIDEBAR -->
+    <left>
+    <VBox alignment="TOP_CENTER" prefWidth="250.0" spacing="10" style="-fx-background-color: #375679;">
+        <padding>
+            <Insets bottom="20" left="20" right="20" top="20" />
+        </padding>
+        <Label style="-fx-font-size: 24px; -fx-text-fill: white; -fx-font-weight: bold;" text="OTODU" />
+        <Button fx:id="dashboardBtn" maxWidth="200" style="-fx-background-color: #375679; -fx-text-fill: white;" text="Dashboard" />
+        <Button fx:id="mentorBtn" maxWidth="200" style="-fx-background-color: #375679; -fx-text-fill: white;" text="Mentor" />
+        <Button fx:id="materiBtn" maxWidth="200" style="-fx-background-color: #4A6FA5; -fx-text-fill: white;" text="Materi" />
+        <Button fx:id="latihanBtn" maxWidth="200" style="-fx-background-color: #375679; -fx-text-fill: white;" text="Latihan" />
+        <Button fx:id="logoutBtn"
+                maxWidth="200"
+                prefHeight="40"
+                alignment="CENTER"
+                graphicTextGap="10"
+                style="-fx-background-color: rgba(255, 255, 255);
+               -fx-text-fill: #495DA3;
+               -fx-font-size: 14px;
+               -fx-font-weight: bold;
+               -fx-background-radius: 8;
+               -fx-cursor: hand;">
+            <text>Keluar</text>
+            <graphic>
+                <ImageView fitHeight="20" fitWidth="20">
+                    <image>
+                        <Image url="@../../../Gambar/logout2.png" />
+                    </image>
+                </ImageView>
+            </graphic>
 
-    <!-- ISI KONTEN MATERI -->
+        </Button>
+    </VBox>
+</left>
+
+    <!-- HEADER DAN ISI MATERI -->
     <center>
-        <VBox spacing="20" style="-fx-background-color: #F5F7FA;">
-            <padding>
-                <Insets top="0" right="80" bottom="40" left="80"/>
-            </padding>
-            <!-- Daftar Materi (akan diisi dinamis dari controller) -->
-            <ScrollPane fitToWidth="true" style="-fx-background-color: transparent;">
-                <content>
-                    <TilePane fx:id="materiTilePane" hgap="30" vgap="20" prefColumns="2"
-                              style="-fx-background-color: transparent;">
-                        <!-- Konten akan dimasukkan secara dinamis melalui controller -->
-                    </TilePane>
-                </content>
-            </ScrollPane>
+        <StackPane>
+            <!-- ISI UTAMA -->
+            <VBox fx:id="mainContent" spacing="10" style="-fx-background-color: #F5F7FA; -fx-padding: 20 20 20 30;">
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="Daftar Materi"
+                           style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #757575;" />
 
-            <!-- Tombol Tambah -->
-            <HBox alignment="CENTER">
-                <Button fx:id="tambahButton" prefHeight="45" prefWidth="200"
-                        style="-fx-background-color: #495DA3; -fx-text-fill: white;" text="Tambah">
-                    <font>
-                        <Font name="Poppins Bold" size="14" />
-                    </font>
-                </Button>
-            </HBox>
+                    <Pane HBox.hgrow="ALWAYS"/> <!-- Spacer -->
 
-        </VBox>
+                    <TextField fx:id="searchField" promptText="Cari materi..."
+                               style="-fx-background-radius: 5; -fx-padding: 5;" />
+
+                    <Button fx:id="tambahButton" text="Tambah Materi"
+                            style="-fx-background-color: #007bff; -fx-text-fill: white;" />
+                </HBox>
+
+                <ScrollPane fitToWidth="true">
+                    <content>
+                        <TilePane fx:id="materiTilePane" hgap="20" vgap="20" prefColumns="2"
+                                  style="-fx-padding: 10;" />
+                    </content>
+                </ScrollPane>
+            </VBox>
+
+            <!-- OVERLAY -->
+            <AnchorPane fx:id="overlayPane" visible="false"
+                        style="-fx-background-color: rgba(0, 0, 0, 0.3);">
+                <StackPane prefWidth="1280" prefHeight="720"
+                           AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
+                           AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+                    <ProgressIndicator fx:id="loadingIndicator"
+                                       maxWidth="100" maxHeight="100" />
+                </StackPane>
+            </AnchorPane>
+        </StackPane>
     </center>
+
 </BorderPane>
