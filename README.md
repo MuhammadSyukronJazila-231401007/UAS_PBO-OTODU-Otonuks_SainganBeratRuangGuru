@@ -1,4 +1,3 @@
-80% penyimpanan digunakan … Jika ruang penyimpanan sudah penuh, Anda tidak dapat menyimpan ke Drive, mencadangkan Google Foto, atau menggunakan Gmail. Dapatkan penyimpanan sebesar 30 GB seharga Rp 14.500,00 Rp 3.500,00/bulan untuk 3 bulan.
 # OTODU: Sistem Pembelajaran Berbasis Quis dan Mentor
 
 Otodu adalah aplikasi edukasi berbasis kuis dan sistem mentor yang dirancang untuk membantu pelajar belajar secara mandiri dengan cara yang lebih hemat, fleksibel, dan menyenangkan. Otodu menyediakan berbagai materi pembelajaran yang bisa diakses menggunakan sistem koin, sehingga pengguna bisa memilih dan membeli hanya materi yang mereka butuhkan. Dengan adanya sistem ini, pengguna tidak perlu membayar untuk seluruh materi jika hanya membutuhkan sebagian.
@@ -66,7 +65,7 @@ Akun admin:
 Email: john@gmail.com
 Password: tes
 
-img/5.png
+![](img/5.png)
 
 # Install Dependecies
 
@@ -86,5 +85,5 @@ Silahkan masukkan dependecy berikut pada file pom.xml. lalu silahkan install.
 </dependency>
 ```
 
-![](img/5.png)
+![](img/6.png)
 
